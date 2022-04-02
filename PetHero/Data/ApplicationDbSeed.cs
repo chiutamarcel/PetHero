@@ -4,7 +4,7 @@
     {
         public static void Seed(ApplicationDbContext db)
         {
-            User user = new User(0, "Bababui", "username321", "password123");
+            User user = new User(0, "Bababui", "mihaitudor", "husky");
             db.Users.Add(user);
             db.SaveChanges();
         }

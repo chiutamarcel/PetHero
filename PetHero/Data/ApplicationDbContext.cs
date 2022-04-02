@@ -4,11 +4,6 @@ namespace PetHero.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    //optionsBuilder.UseSqlServer(
-        //    //    @"Server=(localdb)\mssqllocaldb;Database=PetHeroDb;Trusted_Connection=True");
-        //}
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
