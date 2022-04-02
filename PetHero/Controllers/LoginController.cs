@@ -19,11 +19,11 @@ namespace PetHero.Controllers
             else return 1;
         }
 
-        public JsonResult Index()
+        public IActionResult Index()
         {
-            User user = _db.Users.First();
+            //User user = _db.Users.First();
 
-            return Json(user);
+            return View();
         }
     }
 }
