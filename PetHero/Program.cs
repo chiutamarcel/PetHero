@@ -1,8 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using PetHero.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("PetHeroDb"));
 
 var app = builder.Build();
 
