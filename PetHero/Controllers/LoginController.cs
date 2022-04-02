@@ -1,12 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PetHero.Data;
 
 namespace PetHero.Controllers
 {
     public class LoginController : Controller
     {
-        public IActionResult Index()
+        public ApplicationDbContext _db;
+        public LoginController(ApplicationDbContext db)
         {
-            return View();
+            _db = db;
+        }
+        public JsonResult Index()
+        {
+            User user = _db.Users.First();
+
+            return Json(user);
         }
     }
 }

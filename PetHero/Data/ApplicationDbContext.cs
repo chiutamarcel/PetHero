@@ -4,11 +4,18 @@ namespace PetHero.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    //optionsBuilder.UseSqlServer(
+        //    //    @"Server=(localdb)\mssqllocaldb;Database=PetHeroDb;Trusted_Connection=True");
+        //}
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
         }
+
+        public DbSet<User> Users { get; set; }
     }
 
     public class User
@@ -17,5 +24,13 @@ namespace PetHero.Data
         public string Name { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+
+        public User(int id, string name, string username, string password)
+        {
+            Id = id;
+            Name = name;
+            Username = username;
+            Password = password;
+        }
     }
 }

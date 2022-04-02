@@ -10,6 +10,25 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseInMemo
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    try
+    {
+        var context = services.GetRequiredService<ApplicationDbContext>();
+        ApplicationDbSeed.Seed(context);
+    }
+    catch (Exception ex)
+    {
+        var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+
+        logger.LogError(ex, "An error occurred while migrating or seeding the database.");
+
+        throw;
+    }
+}
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -33,3 +52,4 @@ app.MapControllerRoute(
     pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();
+
