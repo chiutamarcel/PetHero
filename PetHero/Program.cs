@@ -1,33 +1,39 @@
 using Microsoft.EntityFrameworkCore;
-using PetHero.Data;
+using Microsoft.AspNetCore.Identity;
+using PetHero.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-
+//var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//    options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("PetHero"));
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("PetHeroDb"));
+//builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("PetHeroDb"));
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
+//using (var scope = app.Services.CreateScope())
+//{
+//    var services = scope.ServiceProvider;
 
-    try
-    {
-        var context = services.GetRequiredService<ApplicationDbContext>();
-        ApplicationDbSeed.Seed(context);
-    }
-    catch (Exception ex)
-    {
-        var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+//    try
+//    {
+//        var context = services.GetRequiredService<ApplicationDbContext>();
+//        ApplicationDbSeed.Seed(context);
+//    }
+//    catch (Exception ex)
+//    {
+//        var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
 
-        logger.LogError(ex, "An error occurred while migrating or seeding the database.");
+//        logger.LogError(ex, "An error occurred while migrating or seeding the database.");
 
-        throw;
-    }
-}
+//        throw;
+//    }
+//}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -51,6 +57,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Login}/{action=Index}/{id?}");
+
+app.MapRazorPages();
 
 app.Run();
 
