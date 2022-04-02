@@ -1,17 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿//using Microsoft.AspNetCore.Mvc;
 
-namespace PetHero.Controllers
-{
-    public class LoginController : Controller
-    {
-        public LoginController()
-        {
+//namespace PetHero.Controllers
+//{
+//    public class LoginController : Controller
+//    {
+//        public LoginController()
+//        {
             
-        }
+//        }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-    }
-}
+//        public IActionResult Index()
+//        {
+//            return View();
+//        }
+//    }
+//}
