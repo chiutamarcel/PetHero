@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using PetHero.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("PetHero"));
+builder.Services.AddDbContext<ApplicationDbContext>(
+    options => options.UseInMemoryDatabase("PetHero"));
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 // Add services to the container.
