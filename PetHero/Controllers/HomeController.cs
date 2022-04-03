@@ -16,21 +16,30 @@ namespace PetHero.Controllers
             _db = db;
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        public JsonResult Index()
-        {
-            var helpRequests = _db.HelpRequests;
-            return Json(helpRequests);
-        }
-
-        public IActionResult Privacy()
+        public IActionResult Index()
         {
             return View();
         }
+
+        public IActionResult GetCreatePage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateHelpRequest(HelpRequest helpRequest)
+        {
+            _db.HelpRequests.Add(helpRequest);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        //public JsonResult Index()
+        //{
+        //    var helpRequests = _db.HelpRequests;
+        //    return Json(helpRequests);
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
