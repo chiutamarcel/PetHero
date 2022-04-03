@@ -15,7 +15,7 @@
         public string Title { get; set; }
         public string Description { get; set; }
         public string LastLocation { get; set; }
-        //public string ImagePath { get; set; }
+        public string ImagePath { get; set; }
         //public User User { get; set; }
 
 
