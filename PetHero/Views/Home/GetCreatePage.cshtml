@@ -3,15 +3,33 @@
 *@
 @{
 }
-<div class="input-group mb-3">
-  <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-</div>
-<div class="form-floating">
-  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-  <label for="floatingTextarea2">Description</label>
-</div>
-<div class="input-group">
-  <span class="input-group-text">With textarea</span>
-  <textarea class="form-control" aria-label="With textarea"></textarea>
-</div>
+<form method="post">
+    <div class="border p-3 mt-4 mx-auto w-50">
+
+		<div class="row pb-2">
+			<h2 class="text-primary">Create HelpRequest</h2>
+			<hr />
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="inputGroup-sizing-default">Title</span>
+			<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+		</div>
+		<div class="input-group mb-3">
+			<input type="file" class="form-control" id="inputGroupFile02">
+			<label class="input-group-text" for="inputGroupFile02">Upload photo</label>
+		</div>
+		<div class="form-floating">
+			<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+			<label for="floatingTextarea">Last seen location</label>
+		</div>
+		<div class="form-floating">
+			<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+			<label for="floatingTextarea2">Description & other details</label>
+		</div>
+		<div class="col-md-12 text-center p-4">
+			<button class="btn btn-primary col-3" type="button">Post</button>
+			<button class="btn btn-secondary col-3" type="button">Back to List</button>
+		</div>
+	</div>
+</form>
+
