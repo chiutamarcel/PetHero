@@ -11,6 +11,5 @@ public class User : IdentityUser
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public IEnumerable<Chat> Chats { get; set; }
 }
 
