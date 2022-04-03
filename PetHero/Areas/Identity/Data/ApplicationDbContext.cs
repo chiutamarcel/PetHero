@@ -9,6 +9,9 @@ namespace PetHero.Areas.Identity.Data;
 public class ApplicationDbContext : IdentityDbContext<User>
 {
     public DbSet<HelpRequest> HelpRequests { get; set; }
+    public DbSet<Chat> Chats { get; set; }
+    public DbSet<Message> Messages { get; set; }
+    
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
