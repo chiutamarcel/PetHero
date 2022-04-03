@@ -1,10 +1,32 @@
-﻿@{
+﻿@using PetHero.Areas.Identity.Data
+@model IEnumerable<HelpRequest>
+@{
     ViewData["Title"] = "Home Page";
     ViewData["Image"] = "";
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<ul class="mx-auto w-50 list-group">
+    
+    @foreach(var obj in Model)
+    {
+        <li class="card my-3">
+            <div class="card-body">
+                <h5 class="card-title">@obj.Title</h5>
+                <div class="border border-info">
+                    @*<img src=@obj.ImagePath class="img-fluid" alt="...">*@
+                </div>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><span class="font-weight-bold">Descriere:</span> @obj.Description</li>
+                <li class="list-group-item"><span class="font-weight-bold">Locatia aproximativa:</span> @obj.LastLocation</li>
+            </ul>
+            <div class="card-body">
+                <button type="button" class="float-right btn btn-dark">Contacteaza</button>
+            </div>
+        </li>
+        
+    }
+    
+
+</ul>

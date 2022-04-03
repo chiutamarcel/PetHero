@@ -36,8 +36,25 @@ public static class ApplicationDbContextSeed
 {
     public static void Seed(ApplicationDbContext db)
     {
-        db.HelpRequests.Add(new HelpRequest(1, "Lost German Shepherd", "Please help me find my baby :(", "https://upload.wikimedia.org/wikipedia/commons/d/d0/German_Shepherd_-_DSC_0346_%2810096362833%29.jpg"));
-        db.HelpRequests.Add(new HelpRequest(2, "Lost Kitty Cat", "I don't know where she is", "https://cdn.vox-cdn.com/thumbor/9j-s_MPUfWM4bWdZfPqxBxGkvlw=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22312759/rickroll_4k.jpg"));
+        //db.HelpRequests.Add(new HelpRequest(1, "Lost German Shepherd", "Please help me find my baby :(", "https://upload.wikimedia.org/wikipedia/commons/d/d0/German_Shepherd_-_DSC_0346_%2810096362833%29.jpg", "Rahova"));
+        //db.HelpRequests.Add(new HelpRequest(2, "Lost Kitty Cat", "I don't know where she is", "https://cdn.vox-cdn.com/thumbor/9j-s_MPUfWM4bWdZfPqxBxGkvlw=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22312759/rickroll_4k.jpg", "Sibiu"));
+
+        db.HelpRequests.Add(new HelpRequest { 
+            Id=1, 
+            Title="Lost German Shepherd", 
+            Description="Please help me find my baby :(", 
+            //ImagePath="https://upload.wikimedia.org/wikipedia/commons/d/d0/German_Shepherd_-_DSC_0346_%2810096362833%29.jpg", 
+            LastLocation="Rahova" 
+        });
+
+        db.HelpRequests.Add(new HelpRequest {
+            Id=2, 
+            Title="Lost Kitty Cat", 
+            Description="I don't know where she is", 
+            //ImagePath="https://cdn.vox-cdn.com/thumbor/9j-s_MPUfWM4bWdZfPqxBxGkvlw=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22312759/rickroll_4k.jpg", 
+            LastLocation="Sibiu"
+        });
+
         db.SaveChanges();
     }
 }

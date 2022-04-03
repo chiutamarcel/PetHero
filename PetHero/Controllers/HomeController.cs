@@ -18,9 +18,11 @@ namespace PetHero.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<HelpRequest> helpRequest = _db.HelpRequests;
+            return View(helpRequest);
         }
 
+        [HttpGet]
         public IActionResult GetCreatePage()
         {
             return View();

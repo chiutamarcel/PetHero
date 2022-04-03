@@ -1,7 +1,6 @@
 ﻿@using PetHero.Areas.Identity.Data
 @model HelpRequest
-@{
-}
+
 <form asp-controller="Home" asp-action="CreateHelpRequest" method="post">
     <div class="border p-3 mt-4 mx-auto w-50">
 
@@ -26,8 +25,8 @@
 			<label for="floatingTextarea2">Description & other details</label>
 		</div>
 		<div class="col-md-12 text-center p-4">
-			<button class="btn btn-primary col-3" type="button">Post</button>
-			<button class="btn btn-secondary col-3" type="button">Back to List</button>
+			<button class="btn btn-primary col-3" type="submit">Post</button>
+			<button class="btn btn-secondary col-3" asp-controller="Home" asp-action="Index" type="button">Back to List</button>
 		</div>
 	</div>
 </form>
