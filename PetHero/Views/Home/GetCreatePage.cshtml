@@ -1,9 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using PetHero.Areas.Identity.Data
+@model HelpRequest
 @{
 }
-<form method="post">
+<form asp-controller="Home" asp-action="CreateHelpRequest" method="post">
     <div class="border p-3 mt-4 mx-auto w-50">
 
 		<div class="row pb-2">
@@ -12,18 +11,18 @@
 		</div>
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="inputGroup-sizing-default">Title</span>
-			<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			<input type="text" class="form-control" asp-for="Title" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 		</div>
 		<div class="input-group mb-3">
 			<input type="file" class="form-control" id="inputGroupFile02">
 			<label class="input-group-text" for="inputGroupFile02">Upload photo</label>
 		</div>
 		<div class="form-floating">
-			<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+			<textarea class="form-control" asp-for="LastLocation" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
 			<label for="floatingTextarea">Last seen location</label>
 		</div>
 		<div class="form-floating">
-			<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+			<textarea class="form-control" asp-for="Description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
 			<label for="floatingTextarea2">Description & other details</label>
 		</div>
 		<div class="col-md-12 text-center p-4">
