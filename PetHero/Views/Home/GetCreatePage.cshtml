@@ -1,0 +1,32 @@
+﻿@using PetHero.Areas.Identity.Data
+@model CreateHelpRequestModel
+
+<form enctype="multipart/form-data" asp-controller="Home" asp-action="CreateHelpRequest" method="post">
+    <div class="border p-3 mt-4 mx-auto w-50">
+
+		<div class="row pb-2">
+			<h2 class="text-primary">Create HelpRequest</h2>
+			<hr />
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="inputGroup-sizing-default">Title</span>
+			<input type="text" class="form-control" asp-for="Title" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+		</div>
+		<div class="input-group mb-3">
+			<input asp-for="ImageFile" class="form-control" id="inputGroupFile02">
+		</div>
+		<div class="form-floating">
+			<textarea class="form-control" asp-for="LastLocation" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+			<label for="floatingTextarea">Last seen location</label>
+		</div>
+		<div class="form-floating">
+			<textarea class="form-control" asp-for="Description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+			<label for="floatingTextarea2">Description & other details</label>
+		</div>
+		<div class="col-md-12 text-center p-4">
+			<button class="btn btn-primary col-3" type="submit">Post</button>
+			<a class="btn btn-secondary col-3" asp-controller="Home" asp-action="Index" type="button">Back to List</a>
+		</div>
+	</div>
+</form>
+
