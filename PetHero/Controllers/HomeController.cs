@@ -67,7 +67,8 @@ namespace PetHero.Controllers
                 Title = helpRequestModel.Title,
                 Description = helpRequestModel.Description,
                 LastLocation = helpRequestModel.LastLocation,
-                ImagePath = "/Uploads/" + uniqueFileName
+                ImagePath = "/Uploads/" + uniqueFileName,
+                PhoneNr = helpRequestModel.PhoneNr
             };
 
             _db.HelpRequests.Add(helpRequest);

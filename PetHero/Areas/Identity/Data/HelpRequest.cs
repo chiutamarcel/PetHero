@@ -16,6 +16,7 @@
         public string Description { get; set; }
         public string LastLocation { get; set; }
         public string ImagePath { get; set; }
+        public string PhoneNr { get; set; }
         //public User User { get; set; }
 
 

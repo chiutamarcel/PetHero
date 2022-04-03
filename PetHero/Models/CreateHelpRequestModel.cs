@@ -7,5 +7,6 @@
         public string Description { get; set; }
         public string LastLocation { get; set; }
         public IFormFile ImageFile { get; set; }
+        public string PhoneNr { get; set; }
     }
 }
