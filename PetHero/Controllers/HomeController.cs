@@ -18,8 +18,8 @@ namespace PetHero.Controllers
 
         public IActionResult Index()
         {
-            //IEnumerable<HelpRequest> helpRequest;
-            return View();
+            IEnumerable<HelpRequest> helpRequest = _db.HelpRequests;
+            return View(helpRequest);
         }
 
         public IActionResult Privacy()
